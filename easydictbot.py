@@ -33,7 +33,7 @@ def word(update, context):
         update.message.reply_text("Sorry! Word not found.")
     else:
         data = r['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
-        update.message.reply_text("Meaning of " + word_id.upper() + " is " + data)
+        update.message.reply_text("Meaning of " + word_id.upper() + ": " + data)
 
 
 def error(update, context):
