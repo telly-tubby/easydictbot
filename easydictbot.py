@@ -29,7 +29,7 @@ def word(update, context):
     language = "en-gb"
     url = "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id.lower()
     r = requests.get(url, headers={"app_id": "XXXXXX", "app_key": "XXXXXXX"}).json()
-    if r['error']:
+    if r == {'error': 'No entry found matching supplied source_lang, word and provided filters'}:
         update.message.reply_text("Sorry! Word not found.")
     else:
         data = r['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
